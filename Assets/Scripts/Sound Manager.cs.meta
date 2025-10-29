@@ -1,0 +1,69 @@
+fileFormatVersion: 2
+guid: 9b23e564e75123d4394b9ebe259d5d2d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - wizard_Q: {fileID: 8300000, guid: 8f06b1a6aaafd634d9a50bfa10b564b5, type: 3}
+  - wizard_E: {fileID: 8300000, guid: 333fa1bdcba228e4796a856f996cb4b3, type: 3}
+  - wizard_R: {fileID: 8300000, guid: 73f1e2be5fb97da4986fc3e6fd7f3702, type: 3}
+  - wizard_Walk: {fileID: 8300000, guid: 0efcd98b9e66aff4c80adc96d0a72f41, type: 3}
+  - wizard_Jump: {fileID: 8300000, guid: 6c6d5f3dc90acf247a8281a72d77cd41, type: 3}
+  - wizard_Hurt: {fileID: 8300000, guid: 74611888398791b4c95bc98d70eba152, type: 3}
+  - wizard_Dead: {fileID: 8300000, guid: 74611888398791b4c95bc98d70eba152, type: 3}
+  - ranger_Q: {fileID: 8300000, guid: 07ad959b01365484ab7937af689c50cb, type: 3}
+  - ranger_E: {fileID: 8300000, guid: b755296d0221061408bb1255373e10da, type: 3}
+  - ranger_R: {fileID: 8300000, guid: b5775b8b47ba7024db2c1aef098968f7, type: 3}
+  - ranger_Walk: {fileID: 8300000, guid: c72bd5c3d554f114eadbdd3043e1af92, type: 3}
+  - ranger_Jump: {fileID: 8300000, guid: 1e869c0bd75dcb54a9abc1f7232d03d5, type: 3}
+  - ranger_Hurt: {fileID: 8300000, guid: d420fb08e5fb4a94bb18b36d077916b5, type: 3}
+  - ranger_Dead: {fileID: 8300000, guid: d420fb08e5fb4a94bb18b36d077916b5, type: 3}
+  - fighter_Q: {fileID: 8300000, guid: e6bd902e7b24aaf4ea0f45d3872b20b1, type: 3}
+  - fighter_E: {fileID: 8300000, guid: c414162b68c729b43872bbe7409d1dc4, type: 3}
+  - fighter_R: {fileID: 8300000, guid: 2d8583c4af1c99e43b116801b9282c2a, type: 3}
+  - fighter_Walk: {fileID: 8300000, guid: 3eaa42b5e890e93498eb5f8003fc8cd2, type: 3}
+  - fighter_Jump: {fileID: 8300000, guid: af4074b76e79e52458d4a6e86257b512, type: 3}
+  - fighter_Hurt: {fileID: 8300000, guid: dd23d030e6b964645b6e2880fc03c7b5, type: 3}
+  - fighter_Dead: {fileID: 8300000, guid: dd23d030e6b964645b6e2880fc03c7b5, type: 3}
+  - eye_Walk: {fileID: 8300000, guid: f4b1f835f24964a46890c87d932ee11f, type: 3}
+  - eye_Attack: {fileID: 8300000, guid: 3b65a51738fb2a043b8ff66c3c4e1e86, type: 3}
+  - eye_Dead: {fileID: 8300000, guid: a769c66e517e38142a79fd36bda05c31, type: 3}
+  - skele_Walk: {fileID: 8300000, guid: 20756beff316d9146b897ae375920edc, type: 3}
+  - skele_Attack: {fileID: 8300000, guid: 158d23c9b6638ae4c95406b7cd710604, type: 3}
+  - skele_Dead: {fileID: 8300000, guid: a769c66e517e38142a79fd36bda05c31, type: 3}
+  - goblin_Walk: {fileID: 8300000, guid: 7aa74ed4a7a574a4097c4143d56c2322, type: 3}
+  - goblin_Attack: {fileID: 8300000, guid: dabde95049171d6438192a6bd01a9c3b, type: 3}
+  - goblin_Dead: {fileID: 8300000, guid: a769c66e517e38142a79fd36bda05c31, type: 3}
+  - mush_Walk: {fileID: 8300000, guid: c254aff31f046b741a24025187994d17, type: 3}
+  - mush_Attack: {fileID: 8300000, guid: 50f5d9c1c72d3924faf4293293ae7ff3, type: 3}
+  - mush_Dead: {fileID: 8300000, guid: a769c66e517e38142a79fd36bda05c31, type: 3}
+  - allHurt: {fileID: 8300000, guid: f1831c9ecf4a62447b68c6d07b6d78c4, type: 3}
+  - ABoss_Attack: {fileID: 8300000, guid: ea720287508fe3045b6cecb8fe5c875c, type: 3}
+  - ABoss_Hurt: {fileID: 8300000, guid: 68d55310e2fed264b8b4902421ce014e, type: 3}
+  - ABoss_Dead: {fileID: 8300000, guid: 3d09397b354ba984989cd068e9e833fb, type: 3}
+  - ABoss_Idle: {fileID: 8300000, guid: 0ab318b4ecf39284bb753d1d7111dcb9, type: 3}
+  - ABoss_Run: {fileID: 8300000, guid: 04dadb22a1f7cff499637301a13e70de, type: 3}
+  - FBoss_Attack: {fileID: 8300000, guid: 30082c970b5ced6439fee9a16d051adc, type: 3}
+  - FBoss_Hurt: {fileID: 8300000, guid: a0045d4d628b8674ba9a5da087a5f51a, type: 3}
+  - FBoss_Dead: {fileID: 8300000, guid: a01d47dd7f9930a42a967ec903bbee66, type: 3}
+  - FBoss_Idle: {fileID: 8300000, guid: 77bce26091c916f42aa5f7958409e04d, type: 3}
+  - FBoss_Run: {fileID: 8300000, guid: 3b6b2182a2689974e8849743e877a44c, type: 3}
+  - RBoss_Attack: {fileID: 8300000, guid: dd30f900ae89a1c4e96cd8bc76abc0aa, type: 3}
+  - RBoss_Hurt: {fileID: 8300000, guid: 288b9f1103959b74fafd784e0ce51b55, type: 3}
+  - RBoss_Dead: {fileID: 8300000, guid: 16ca1c38e0f67d8429aea3b6a6700e46, type: 3}
+  - RBoss_Idle: {fileID: 8300000, guid: 2f23446832e8c584eb9767eb7a3fa316, type: 3}
+  - RBoss_Run: {fileID: 8300000, guid: 0dbe856d6a48507468f8b4a93b49b979, type: 3}
+  - WBoss_Attack: {fileID: 8300000, guid: ac7a599c6b2a2d7499955f71fad3e093, type: 3}
+  - WBoss_Hurt: {fileID: 8300000, guid: 1e31ca177c8ce394ca8de88824f73ab1, type: 3}
+  - WBoss_Dead: {fileID: 8300000, guid: 0509dc57eb13e5f4289ef9b3e9fd24f1, type: 3}
+  - WBoss_Idle: {fileID: 8300000, guid: a45af2788b1552944b98ed6cff1985ad, type: 3}
+  - WBoss_Run: {fileID: 8300000, guid: 1362132923fbc7442a350d8674266d52, type: 3}
+  - portal: {fileID: 8300000, guid: c2529e64134ee934c993d3cfd6e1b7e6, type: 3}
+  - background_Music: {instanceID: 0}
+  - soundManager: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 505724f9eed18c74c857a19894b1582d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - characterstats_script: {instanceID: 0}
+  - Fireball: {instanceID: 0}
+  - Icespear: {instanceID: 0}
+  - Lightning: {fileID: 2030400747899970126, guid: e3f4eb13e6bf75e4f9ce701f7d77e496,
+      type: 3}
+  - RangerArrow: {instanceID: 0}
+  - wizard_stats: {instanceID: 0}
+  - ranger_stats: {instanceID: 0}
+  - fighter_stats: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

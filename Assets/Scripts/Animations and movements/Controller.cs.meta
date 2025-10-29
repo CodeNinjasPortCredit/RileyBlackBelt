@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f4215744467cb414a8ffeb1b07614836
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerhealth: {instanceID: 0}
+  - playermana: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - lightning_to_init: {fileID: 2030400747899970126, guid: e3f4eb13e6bf75e4f9ce701f7d77e496,
+      type: 3}
+  - Q_Button: {instanceID: 0}
+  - E_Button: {instanceID: 0}
+  - R_Button: {instanceID: 0}
+  - DeathScreen: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
