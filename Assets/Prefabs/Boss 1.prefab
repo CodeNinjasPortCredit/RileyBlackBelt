@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 3145374954557964158}
   - component: {fileID: 7015796286123948755}
   - component: {fileID: 414186501584239308}
-  - component: {fileID: 8317233943926408173}
   - component: {fileID: 7918189636778863379}
   - component: {fileID: 2385272602230709870}
   - component: {fileID: 3568098032721060305}
   - component: {fileID: 6692796247525748824}
+  - component: {fileID: 6986741726074890112}
   m_Layer: 0
   m_Name: Boss 1
   m_TagString: Untagged
@@ -128,38 +128,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &8317233943926408173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286849101223850202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ecc42034edfe5409dfd48b01dfb380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossType: 0
-  enemyType: 
-  isRunningParam: IsRunning
-  isHurtParam: IsHurt
-  isAttackingParam: IsAttacking
-  isRangedAttackingParam: IsRangedAttacking
-  isIdleParam: IsIdle
-  isDeadParam: IsDead
-  minXPosition: 470
-  maxXPosition: 495
-  patrolSpeed: 6
-  chaseSpeed: 7.5
-  attackRange: 6
-  rangedAttackRange: 3
-  rangedAttackChance: 0.75
-  attackDelay: 0.2
-  rangedAttackDelay: 1
-  hurtDuration: 0.5
-  Damage: 5
-  attackTrigger: {fileID: 1506245149698489933}
 --- !u!50 &7918189636778863379
 Rigidbody2D:
   serializedVersion: 4
@@ -186,7 +154,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!60 &2385272602230709870
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -194,7 +162,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286849101223850202}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -287,7 +255,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.027059644, y: -0.29499996}
+  m_Offset: {x: 0.0023572966, y: -0.2940058}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -298,8 +266,39 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1662941, y: 0.0001}
+  m_Size: {x: 0.107460216, y: 0.0020883083}
   m_EdgeRadius: 0
+--- !u!114 &6986741726074890112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286849101223850202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ec385fe6bf3a6498293df1cf1a6e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyType: 
+  isRunningBool: IsRunning
+  isHurtBool: IsHurt
+  isAttackingBool: IsAttacking
+  isIdleBool: IsIdle
+  isDeadBool: IsDead
+  minXPosition: -230
+  maxXPosition: -215
+  patrolSpeed: 2
+  chaseSpeed: 4
+  attackRange: 4
+  attackDelay: 1
+  health: 100
+  hurtDuration: 0.5
+  attackTrigger: {fileID: 0}
+  isChasing: 0
+  movingRight: 1
+  isAttacking: 0
+  Damage: 0
 --- !u!1 &1050168249521238722
 GameObject:
   m_ObjectHideFlags: 0

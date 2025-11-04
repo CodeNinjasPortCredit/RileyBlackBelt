@@ -21,10 +21,10 @@ public class PlayerMana : MonoBehaviour
     private IEnumerator coroutine;
     private void Start()
     {
-        SetMaxMana(100);
-        SetMana(100);
+        // SetMaxMana(100);
+        // SetMana(100);
 
-        StartCoroutine("ManaRegenerator", 10);
+        // StartCoroutine("ManaRegenerator", 10);
     }
     
 /*    IEnumerator Start()

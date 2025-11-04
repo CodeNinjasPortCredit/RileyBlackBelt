@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 172955171158907333}
   - component: {fileID: 3562563488704708102}
   - component: {fileID: 6295939234999748024}
-  - component: {fileID: 7583769417671910876}
   - component: {fileID: 8338170742003707052}
   - component: {fileID: -1732624299511832959}
   - component: {fileID: 1568163288030101900}
+  - component: {fileID: 6202622043428539868}
   m_Layer: 0
   m_Name: FighterBoss
   m_TagString: Untagged
@@ -139,38 +139,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7583769417671910876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4026001093614826257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60ecc42034edfe5409dfd48b01dfb380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossType: 1
-  enemyType: 
-  isRunningParam: IsRunning
-  isHurtParam: IsHurt
-  isAttackingParam: IsAttacking
-  isRangedAttackingParam: IsRangedAttacking
-  isIdleParam: IsIdle
-  isDeadParam: IsDead
-  minXPosition: 470
-  maxXPosition: 495
-  patrolSpeed: 7.5
-  chaseSpeed: 5
-  attackRange: 7
-  rangedAttackRange: 3
-  rangedAttackChance: 0.75
-  attackDelay: 0
-  rangedAttackDelay: 1
-  hurtDuration: 0.5
-  Damage: 3
-  attackTrigger: {fileID: 7806360690041109651}
 --- !u!60 &8338170742003707052
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -178,7 +146,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4026001093614826257}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -286,6 +254,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12338969, y: 0.00020124018}
   m_EdgeRadius: 0
+--- !u!114 &6202622043428539868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026001093614826257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ec385fe6bf3a6498293df1cf1a6e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyType: 
+  isRunningBool: IsRunning
+  isHurtBool: IsHurt
+  isAttackingBool: IsAttacking
+  isIdleBool: IsIdle
+  isDeadBool: IsDead
+  minXPosition: 0
+  maxXPosition: 0
+  patrolSpeed: 2
+  chaseSpeed: 4
+  attackRange: 1
+  attackDelay: 1
+  health: 0
+  hurtDuration: 0.5
+  attackTrigger: {fileID: 0}
+  isChasing: 0
+  movingRight: 1
+  isAttacking: 0
+  Damage: 0
 --- !u!1 &8408000034204274262
 GameObject:
   m_ObjectHideFlags: 0

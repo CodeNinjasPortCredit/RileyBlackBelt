@@ -1898,7 +1898,7 @@ GameObject:
   - component: {fileID: 937173986}
   - component: {fileID: 937173985}
   - component: {fileID: 937173984}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -18411,6 +18411,87 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1001 &1002153838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.9558413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12950456
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104070830635454522, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373234026650596682, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: m_Name
+      value: Initializer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861782101626546815, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: ManaSlider
+      value: 
+      objectReference: {fileID: 694053004}
+    - target: {fileID: 6861782101626546815, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: HealthSlider
+      value: 
+      objectReference: {fileID: 940665815}
+    - target: {fileID: 6861782101626546815, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: RangerPrefab
+      value: 
+      objectReference: {fileID: 249329067}
+    - target: {fileID: 6861782101626546815, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: WizardPrefab
+      value: 
+      objectReference: {fileID: 1673962240}
+    - target: {fileID: 6861782101626546815, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: FighterPrefab
+      value: 
+      objectReference: {fileID: 1385093959}
+    - target: {fileID: 6861782101626546815, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
+      propertyPath: StaminaSlider
+      value: 
+      objectReference: {fileID: 1531119349}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9b6fdcf781739a4b893d1eefe41b129, type: 3}
 --- !u!1 &1053382817
 GameObject:
   m_ObjectHideFlags: 0
@@ -19260,11 +19341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856875574234376044, guid: cc9d4245647fe884396e693ce371f169, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -23.33
       objectReference: {fileID: 0}
     - target: {fileID: 2856875574234376044, guid: cc9d4245647fe884396e693ce371f169, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2856875574234376044, guid: cc9d4245647fe884396e693ce371f169, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73826,11 +73907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591684294703458793, guid: 179e1231961d07849a482727256d612d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 8
+      value: -23.05
       objectReference: {fileID: 0}
     - target: {fileID: 1591684294703458793, guid: 179e1231961d07849a482727256d612d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: 3.04
       objectReference: {fileID: 0}
     - target: {fileID: 1591684294703458793, guid: 179e1231961d07849a482727256d612d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -102110,56 +102191,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1688586455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1688586457}
-  - component: {fileID: 1688586456}
-  m_Layer: 0
-  m_Name: Initializer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1688586456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688586455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bee5f57a15100c448a449ddd3dd50c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FighterPrefab: {fileID: 1385093959}
-  RangerPrefab: {fileID: 249329067}
-  WizardPrefab: {fileID: 1673962240}
-  HealthSlider: {fileID: 940665815}
-  StaminaSlider: {fileID: 1531119349}
-  ManaSlider: {fileID: 694053004}
---- !u!4 &1688586457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688586455}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9558413, y: 2.0930772, z: -0.12950456}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1695351857
 GameObject:
   m_ObjectHideFlags: 0
@@ -102708,4 +102739,4 @@ SceneRoots:
   - {fileID: 403441984}
   - {fileID: 1053382819}
   - {fileID: 1569446792}
-  - {fileID: 1688586457}
+  - {fileID: 1002153838}

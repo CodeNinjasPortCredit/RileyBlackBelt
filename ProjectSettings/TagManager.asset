@@ -20,6 +20,7 @@ TagManager:
   - Portal
   - SkeleBoss
   - Chase
+  - GG
   layers:
   - Default
   - TransparentFX

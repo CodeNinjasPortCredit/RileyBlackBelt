@@ -21,11 +21,9 @@ public class PlayerStamina : MonoBehaviour
     private IEnumerator coroutine;
     private void Start()
     {
-        SetMaxStamina(100);
-        SetStamina(100);
+        // SetMaxStamina(100);
+        // SetStamina(100);
 
-        // coroutine = StaminaRegenerator(10);
-        StartCoroutine(coroutine);
     }
 
     /*    IEnumerator Start()

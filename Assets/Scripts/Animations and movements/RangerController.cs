@@ -305,17 +305,17 @@ public class RangerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("I took damage.");
-        if (other.gameObject.transform.parent.GetComponent<MobAI>())
+        if (other.gameObject.GetComponentInParent<MobAI>() != null)
         {
-            TakeDamage(other.gameObject.transform.parent.GetComponent<MobAI>().Damage);
+            TakeDamage(other.gameObject.GetComponentInParent<MobAI>().Damage);
         }
-        else if (other.gameObject.GetComponent<MobAI>())
+        if (other.gameObject.GetComponent<MobAI>() != null)
         {
             TakeDamage(other.gameObject.GetComponent<MobAI>().Damage);
         }
-        else if (other.gameObject.transform.parent.GetComponent<BossAI>())
+        if (other.gameObject.GetComponentInParent<BossAI>() != null)
         {
-            TakeDamage(other.gameObject.transform.parent.GetComponent<BossAI>().Damage);
+            TakeDamage(other.gameObject.GetComponentInParent<BossAI>().Damage);
         }
     }
 
