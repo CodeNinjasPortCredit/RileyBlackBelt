@@ -167,12 +167,12 @@ public class MobAI : MonoBehaviour
 
     void Patrol()
     {
-        // Check if the enemy has reached the boundaries (using world position)
-        if (movingRight && transform.position.x >= maxXPosition)
+        // Check if the enemy has reached the boundaries (using local position)
+        if (movingRight && transform.localPosition.x >= maxXPosition)
         {
             Flip();
         }
-        else if (!movingRight && transform.position.x <= minXPosition)
+        else if (!movingRight && transform.localPosition.x <= minXPosition)
         {
             Flip();
         }
@@ -578,11 +578,35 @@ public class MobAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // Draw patrol boundaries
+        // Draw patrol boundaries using local position
+        // Convert local positions to world positions for accurate visualization
+        Vector3 minWorldPos = transform.TransformPoint(new Vector3(minXPosition, 0, 0));
+        Vector3 maxWorldPos = transform.TransformPoint(new Vector3(maxXPosition, 0, 0));
+        
+        // Draw the patrol line
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(new Vector3(minXPosition, transform.position.y, 0), new Vector3(maxXPosition, transform.position.y, 0));
-        Gizmos.DrawSphere(new Vector3(minXPosition, transform.position.y, 0), 0.2f);
-        Gizmos.DrawSphere(new Vector3(maxXPosition, transform.position.y, 0), 0.2f);
+        Gizmos.DrawLine(minWorldPos, maxWorldPos);
+        
+        // Draw spheres at the boundaries
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(minWorldPos, 0.2f);
+        Gizmos.DrawSphere(maxWorldPos, 0.2f);
+        
+        // Draw a visual indicator showing the current position relative to boundaries
+        Vector3 currentLocalPos = transform.localPosition;
+        Vector3 currentWorldPos = transform.position;
+        
+        // Draw a line from current position to show if we're within bounds
+        if (currentLocalPos.x >= minXPosition && currentLocalPos.x <= maxXPosition)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(currentWorldPos, currentWorldPos + Vector3.up * 0.5f);
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(currentWorldPos, currentWorldPos + Vector3.up * 0.5f);
+        }
     }
 
     void Die()
