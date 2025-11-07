@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2856875574234376044
 Transform:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   staminaSlider: {fileID: 0}
   manaSlider: {fileID: 0}
   speed: 10
-  jumpForce: 8.5
+  jumpForce: 9
   JumpCost: 25
   isGrounded: 1
   qAttackCost: 20

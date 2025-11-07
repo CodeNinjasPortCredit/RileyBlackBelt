@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ashbreaker Saga
+  m_text: Champions' Quest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae737ab4879af124a9dfbdbf839a19cd, type: 2}
   m_sharedMaterial: {fileID: 1790976964003375407, guid: ae737ab4879af124a9dfbdbf839a19cd, type: 2}
@@ -2561,7 +2561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123.8, y: 413.4}
+  m_AnchoredPosition: {x: -137, y: 417}
   m_SizeDelta: {x: 500, y: 300.6421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720137875
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ashbreaker
+  m_text: Champions'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae737ab4879af124a9dfbdbf839a19cd, type: 2}
   m_sharedMaterial: {fileID: 1790976964003375407, guid: ae737ab4879af124a9dfbdbf839a19cd, type: 2}
@@ -6483,7 +6483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270.4, y: 417.3}
+  m_AnchoredPosition: {x: 261, y: 419}
   m_SizeDelta: {x: 500, y: 300.6421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072358206
@@ -6506,7 +6506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Saga
+  m_text: Quest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae737ab4879af124a9dfbdbf839a19cd, type: 2}
   m_sharedMaterial: {fileID: 1790976964003375407, guid: ae737ab4879af124a9dfbdbf839a19cd, type: 2}

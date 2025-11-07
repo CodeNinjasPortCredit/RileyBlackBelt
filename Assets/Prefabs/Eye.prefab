@@ -107,7 +107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3917014407538651160
 RectTransform:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   chaseSpeed: 7
   attackRange: 6
   attackDelay: 1
-  health: 500
+  health: 65
   hurtDuration: 0.5
   attackTrigger: {fileID: 6979870536641083895}
   isChasing: 0

@@ -543,11 +543,15 @@ public class RangerController : MonoBehaviour
         Vector3 secondarrowPosition;
         Vector3 thirdarrowPosition;
 
+        float arrowRotation = -60f;
+
         if (player_scale_x < 0)
         {
             firstarrowPosition = rangerPosition + new Vector3(-4f, 7f, 0);
             secondarrowPosition = firstarrowPosition + new Vector3(-4f, 0f, 0);
             thirdarrowPosition = secondarrowPosition + new Vector3(-4f, 0f, 0);
+
+            arrowRotation = -120f;
 
         }
         else
@@ -558,19 +562,20 @@ public class RangerController : MonoBehaviour
         }
 
         GameObject firstArrow = Instantiate(RangerArrow, firstarrowPosition, Quaternion.identity);
-        firstArrow.transform.Rotate(0f, 0f, -60f);
         firstArrow.GetComponent<ArrowMovement>().isFacingLeft = (player_scale_x < 0);
+        firstArrow.transform.Rotate(0f, 0f, arrowRotation);
         firstArrow.GetComponent<ArrowMovement>().SpeedX = 250f;
         firstArrow.GetComponent<ArrowMovement>().SpeedY = -600f;
         yield return new WaitForSeconds(0.3f);
         GameObject secondArrow = Instantiate(RangerArrow, secondarrowPosition, Quaternion.identity);
-        secondArrow.transform.Rotate(0f, 0f, -60f);
         secondArrow.GetComponent<ArrowMovement>().isFacingLeft = (player_scale_x < 0);
+        secondArrow.transform.Rotate(0f, 0f, arrowRotation);
         secondArrow.GetComponent<ArrowMovement>().SpeedX = 250f;
         secondArrow.GetComponent<ArrowMovement>().SpeedY = -600f;
         yield return new WaitForSeconds(0.3f);
         GameObject thirdArrow = Instantiate(RangerArrow, thirdarrowPosition, Quaternion.identity);
-        thirdArrow.transform.Rotate(0f, 0f, -60f);
+        thirdArrow.transform.Rotate(0f, 0f, arrowRotation);
+        secondArrow.transform.Rotate(0f, 0f, arrowRotation);
         thirdArrow.GetComponent<ArrowMovement>().isFacingLeft = (player_scale_x < 0);
         thirdArrow.GetComponent<ArrowMovement>().SpeedX = 250f;
         thirdArrow.GetComponent<ArrowMovement>().SpeedY = -600f;

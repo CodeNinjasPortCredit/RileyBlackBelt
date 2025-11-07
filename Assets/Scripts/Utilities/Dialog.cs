@@ -24,7 +24,7 @@ public class Dialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Dialog_object.transform.localScale = new Vector3 (0, 0, 0);
+        Dialog_object.transform.localScale = new Vector3(0, 0, 0);
         leftButton = Dialog_object.transform.Find("L_button").gameObject;
         rightButton = Dialog_object.transform.Find("R_button").gameObject;
 
@@ -56,6 +56,7 @@ public class Dialog : MonoBehaviour
         {
             CloseDialog(5f);
         }
+
     }
 
     public void NextDialog()
@@ -82,7 +83,7 @@ public class Dialog : MonoBehaviour
         Dialog_object.transform.Find("R_button").Find("Text (TMP)").gameObject.GetComponent<TMP_Text>().text = button2_message;
         Dialog_object.SetActive(true);
         Dialog_object.LeanScale(new Vector3(1f, 1f, 1f), time).setEaseOutElastic();
-        
+
         // Enable both buttons when showing dialog
         EnableButtons();
     }
@@ -98,7 +99,7 @@ public class Dialog : MonoBehaviour
         Dialog_object.transform.Find("Dialog Area").gameObject.GetComponent<TMP_Text>().text = dialog[Counter];
         Dialog_object.SetActive(true);
         Dialog_object.LeanScale(new Vector3(1f, 1f, 1f), time).setEaseOutElastic();
-        
+
         // Enable both buttons when opening dialog
         EnableButtons();
     }
@@ -162,4 +163,6 @@ public class Dialog : MonoBehaviour
         // Add your right button logic here
         CloseDialog(1.5f);
     }
+
+
 }
