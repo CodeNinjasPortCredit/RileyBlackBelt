@@ -84,7 +84,7 @@ public class MobAI : MonoBehaviour
         // Set initial animation state
         UpdateAnimationState();
         
-        Debug.Log($"[MobAI] MobAI initialized for {gameObject.name}. AttackRange: {attackRange}, ChaseSpeed: {chaseSpeed}");
+        // Debug.Log($"[MobAI] MobAI initialized for {gameObject.name}. AttackRange: {attackRange}, ChaseSpeed: {chaseSpeed}");
     }
 
     void Update()
@@ -137,16 +137,22 @@ public class MobAI : MonoBehaviour
         }
         else if (isChasing && !isHurt)
         {
+            // CRITICAL: Only chase if we have a valid playerTransform
+            // OnTriggerStay2D should maintain this, but if it's null, we can't chase
             if (playerTransform == null)
             {
-                Debug.LogWarning("[MobAI] Update: isChasing is true but playerTransform is null! Resetting chase state.");
-                isChasing = false;
+                // If playerTransform is null but we're supposed to be chasing,
+                // OnTriggerStay2D should fix this. Don't reset isChasing here.
+                // Just skip this frame and wait for OnTriggerStay2D to restore it
+                return;
             }
-            else
+            
+            // Only log occasionally to avoid spam
+            if (Time.frameCount % 60 == 0)
             {
-                Debug.Log($"[MobAI] Update: Calling ChasePlayer(). isChasing={isChasing}, playerTransform={playerTransform.name}");
-                ChasePlayer();
+                Debug.Log($"[MobAI] Update: Calling ChasePlayer(). isChasing={isChasing}, playerTransform={playerTransform.name}, isAttacking={isAttacking}");
             }
+            ChasePlayer();
         }
         else if (!isHurt)
         {
@@ -194,7 +200,11 @@ public class MobAI : MonoBehaviour
         // Calculate horizontal distance to the player
         float horizontalDistance = Mathf.Abs(playerTransform.position.x - transform.position.x);
         
-        Debug.Log($"[MobAI] ChasePlayer: horizontalDistance={horizontalDistance}, attackRange={attackRange}");
+        // Only log occasionally to avoid spam
+        if (Time.frameCount % 60 == 0)
+        {
+            Debug.Log($"[MobAI] ChasePlayer: horizontalDistance={horizontalDistance}, attackRange={attackRange}, isChasing={isChasing}");
+        }
 
         // If within attack range, stop and prepare to attack
         if (horizontalDistance <= attackRange)
@@ -211,7 +221,7 @@ public class MobAI : MonoBehaviour
             // Only start attack sequence if not already attacking
             if (!isAttacking)
             {
-                Debug.Log($"[MobAI] Attack conditions met! Horizontal: {horizontalDistance}, AttackRange: {attackRange}");
+                // Debug.Log($"[MobAI] Attack conditions met! Horizontal: {horizontalDistance}, AttackRange: {attackRange}");
                 animator.SetBool(isRunningBool, false);
                 animator.SetBool(isIdleBool, true);
                 
@@ -312,7 +322,7 @@ public class MobAI : MonoBehaviour
 
     void ResetAttackAnimation()
     {
-        Debug.Log("[MobAI] ResetAttackAnimation() called - attack animation finished");
+        Debug.Log($"[MobAI] ResetAttackAnimation() called - attack animation finished. isChasing={isChasing}, playerTransform={(playerTransform != null ? playerTransform.name : "null")}");
         
         // Reset the attack animation state
         animator.SetBool(isAttackingBool, false);
@@ -326,15 +336,23 @@ public class MobAI : MonoBehaviour
         // Reset isAttacking flag so we can attack again if player is still in range
         isAttacking = false;
         
-        // Don't reset isChasing here - let OnTriggerStay2D maintain it
-        // If player is still in range, ChasePlayer() will immediately start a new attack
-        // Only reset animation state if we're not chasing
-        if (!isChasing || playerTransform == null)
+        // CRITICAL: Don't reset isChasing here - OnTriggerStay2D maintains it
+        // If player is still in range, OnTriggerStay2D will keep isChasing=true
+        // and ChasePlayer() will immediately start a new attack in the next Update()
+        
+        // Don't set idle state here - let ChasePlayer() decide based on whether player is in attack range
+        // If we're still chasing, ChasePlayer() will either attack again or continue chasing
+        if (isChasing && playerTransform != null)
         {
+            Debug.Log("[MobAI] ResetAttackAnimation: Still chasing! ChasePlayer() will handle next action");
+            // Don't set any animation state - let ChasePlayer() handle it
+        }
+        else
+        {
+            Debug.Log("[MobAI] ResetAttackAnimation: Not chasing, setting idle state");
             animator.SetBool(isIdleBool, true);
             animator.SetBool(isRunningBool, false);
         }
-        // Otherwise, ChasePlayer() will handle the animation state in the next Update()
     }
 
     // Animation Event Methods - Called by Animation Events
@@ -454,14 +472,21 @@ public class MobAI : MonoBehaviour
             Transform player = other.transform.parent;
             if (player != null)
             {
-                // Continuously update player position and ensure we're still chasing
-                // This ensures chase state persists as long as player is in detection area
-                if (!isChasing)
-                {
-                    Debug.Log($"[MobAI] *** OnTriggerStay2D: Setting isChasing = true for {player.name} ***");
-                }
+                // CRITICAL: This method is called EVERY FRAME while the trigger is active
+                // Always maintain chase state and update player position
+                // This is the AUTHORITATIVE source for chase state - it overrides everything else
+                bool wasChasing = isChasing;
+                bool hadPlayerTransform = (playerTransform != null);
+                
+                // Always update these - this ensures chase state persists as long as player is in trigger
                 playerTransform = player;
                 isChasing = true;
+                
+                // Log when chase state is restored (only occasionally to avoid spam)
+                if ((!wasChasing || !hadPlayerTransform) && Time.frameCount % 60 == 0)
+                {
+                    Debug.Log($"[MobAI] *** OnTriggerStay2D: Maintaining chase for {player.name}. wasChasing={wasChasing}, hadPlayerTransform={hadPlayerTransform} ***");
+                }
                 
                 // Don't interfere with attack animations - let ChasePlayer() handle movement and facing during attacks
                 // Only update animation states if not currently attacking
@@ -480,6 +505,10 @@ public class MobAI : MonoBehaviour
                 {
                     polyCollider.enabled = true;
                 }
+            }
+            else
+            {
+                Debug.LogWarning("[MobAI] OnTriggerStay2D: Chase tag detected but player parent is null!");
             }
             return; // Exit early to avoid checking other tags
         }
