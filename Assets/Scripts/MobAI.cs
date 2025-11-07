@@ -20,6 +20,7 @@ public class MobAI : MonoBehaviour
     public float minXPosition;
     public float maxXPosition;
     public float patrolSpeed = 2f;
+    private Vector3 startingLocalPosition; // Store starting position for accurate visualization
 
     // Chase settings
     [Header("Chase Settings")]
@@ -83,6 +84,9 @@ public class MobAI : MonoBehaviour
 
         // Set initial animation state
         UpdateAnimationState();
+        
+        // Store starting local position for accurate visualization
+        startingLocalPosition = transform.localPosition;
         
         // Debug.Log($"[MobAI] MobAI initialized for {gameObject.name}. AttackRange: {attackRange}, ChaseSpeed: {chaseSpeed}");
     }
@@ -579,33 +583,57 @@ public class MobAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
         // Draw patrol boundaries using local position
-        // Convert local positions to world positions for accurate visualization
-        Vector3 minWorldPos = transform.TransformPoint(new Vector3(minXPosition, 0, 0));
-        Vector3 maxWorldPos = transform.TransformPoint(new Vector3(maxXPosition, 0, 0));
+        // The boundaries minXPosition and maxXPosition are relative to the enemy's local space
+        // We need to visualize them correctly in world space
+        
+        Vector3 minWorldPos, maxWorldPos;
+        Vector3 currentWorldPos = transform.position;
+        
+        // Check if enemy has a parent
+        if (transform.parent != null)
+        {
+            // Enemy is a child - boundaries are relative to parent's local space
+            // Use the starting local Y and Z positions for consistent visualization
+            Vector3 minLocalPos = new Vector3(minXPosition, startingLocalPosition.y, startingLocalPosition.z);
+            Vector3 maxLocalPos = new Vector3(maxXPosition, startingLocalPosition.y, startingLocalPosition.z);
+            
+            // Convert from parent's local space to world space
+            minWorldPos = transform.parent.TransformPoint(minLocalPos);
+            maxWorldPos = transform.parent.TransformPoint(maxLocalPos);
+        }
+        else
+        {
+            // Enemy has no parent - boundaries are world coordinates
+            // Use starting Y and Z for consistent visualization
+            minWorldPos = new Vector3(minXPosition, startingLocalPosition.y, startingLocalPosition.z);
+            maxWorldPos = new Vector3(maxXPosition, startingLocalPosition.y, startingLocalPosition.z);
+        }
         
         // Draw the patrol line
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(minWorldPos, maxWorldPos);
         
-        // Draw spheres at the boundaries
+        // Draw spheres at the boundaries (larger for visibility)
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(minWorldPos, 0.2f);
-        Gizmos.DrawSphere(maxWorldPos, 0.2f);
+        Gizmos.DrawSphere(minWorldPos, 0.3f);
+        Gizmos.DrawSphere(maxWorldPos, 0.3f);
         
-        // Draw a visual indicator showing the current position relative to boundaries
+        // Draw vertical lines at boundaries for better visibility
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(minWorldPos + Vector3.up * 0.5f, minWorldPos + Vector3.down * 0.5f);
+        Gizmos.DrawLine(maxWorldPos + Vector3.up * 0.5f, maxWorldPos + Vector3.down * 0.5f);
+        
+        // Draw a visual indicator showing if current local position is within bounds
         Vector3 currentLocalPos = transform.localPosition;
-        Vector3 currentWorldPos = transform.position;
-        
-        // Draw a line from current position to show if we're within bounds
         if (currentLocalPos.x >= minXPosition && currentLocalPos.x <= maxXPosition)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(currentWorldPos, currentWorldPos + Vector3.up * 0.5f);
+            Gizmos.DrawLine(currentWorldPos, currentWorldPos + Vector3.up * 0.8f);
         }
         else
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(currentWorldPos, currentWorldPos + Vector3.up * 0.5f);
+            Gizmos.DrawLine(currentWorldPos, currentWorldPos + Vector3.up * 0.8f);
         }
     }
 
