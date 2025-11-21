@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1591684294703458793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -240,18 +240,15 @@ MonoBehaviour:
   staminaSlider: {fileID: 0}
   manaSlider: {fileID: 0}
   speed: 7
-  jumpForce: 10
+  jumpForce: 12
   isGrounded: 0
   qAttackCost: 5
   eAttackCost: 10
   rAttackCost: 25
-  JumpCost: 25
-  attackQ: {fileID: 0}
-  attackE: {fileID: 0}
-  attackR: {fileID: 0}
-  raycastOriginOffset: {x: 0, y: -1.5}
+  JumpCost: 10
+  raycastOriginOffset: {x: 0, y: -1}
   raycastDirection: {x: 0, y: -1.5}
-  raycastDistance: 1.75
+  raycastDistance: 0.5
   raycastColor: {r: 1, g: 0, b: 0, a: 1}
   groundLayerMask:
     serializedVersion: 2
@@ -495,7 +492,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.10196079, g: 0.054901965, b: 0.23529413, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

@@ -10,6 +10,11 @@ public class Initializer : MonoBehaviour
     public GameObject RangerPrefab;
     public GameObject WizardPrefab;
 
+    public GameObject FighterBoss;
+    public GameObject RangerBoss;
+    public GameObject WizardBoss;
+
+
     public Slider HealthSlider;
     public Slider StaminaSlider;
     public Slider ManaSlider;
@@ -29,6 +34,10 @@ public class Initializer : MonoBehaviour
                 StaminaSlider.maxValue = 100;
                 StaminaSlider.value = 100;
                 ManaSlider.gameObject.SetActive(false);
+                if (SceneManager.GetActiveScene().name == "World 2-5")
+                {
+                    FighterBoss.gameObject.SetActive(true);
+                }
                 return;
             case 1:
                 RangerPrefab.SetActive(true);
@@ -38,6 +47,10 @@ public class Initializer : MonoBehaviour
                 StaminaSlider.value = 75;
                 ManaSlider.maxValue = 75;
                 ManaSlider.value = 75;
+                                if (SceneManager.GetActiveScene().name == "World 2-5")
+                {
+                    RangerBoss.gameObject.SetActive(true);
+                }
                 return;
             case 2:
                 WizardPrefab.SetActive(true);
@@ -47,6 +60,10 @@ public class Initializer : MonoBehaviour
                 StaminaSlider.value = 50;
                 ManaSlider.maxValue = 100;
                 ManaSlider.value = 100;
+                if (SceneManager.GetActiveScene().name == "World 2-5")
+                {
+                    WizardBoss.gameObject.SetActive(true);
+                }
                 return;
 
 

@@ -480,6 +480,7 @@ public class RangerController : MonoBehaviour
         Vector3 rangerPosition = gameObject.transform.position;
         Vector3 arrowPosition;
 
+
         if (transform.localScale.x < 0)
         {
             arrowPosition = rangerPosition + new Vector3(-3.5f, 1f, 0);
@@ -493,6 +494,15 @@ public class RangerController : MonoBehaviour
         GameObject instantiatedArrow = Instantiate(RangerArrow, arrowPosition, Quaternion.identity);
         instantiatedArrow.GetComponent<ArrowMovement>().isFacingLeft = (transform.localScale.x < 0);
         instantiatedArrow.GetComponent<ArrowMovement>().SpeedY = 0f;
+
+        if (instantiatedArrow.GetComponent<ArrowMovement>().isFacingLeft == true)
+        {
+            instantiatedArrow.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+        }
+        else
+        {
+            instantiatedArrow.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+        }
     }
 
     void PerformBasicAttack()
@@ -575,7 +585,6 @@ public class RangerController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         GameObject thirdArrow = Instantiate(RangerArrow, thirdarrowPosition, Quaternion.identity);
         thirdArrow.transform.Rotate(0f, 0f, arrowRotation);
-        secondArrow.transform.Rotate(0f, 0f, arrowRotation);
         thirdArrow.GetComponent<ArrowMovement>().isFacingLeft = (player_scale_x < 0);
         thirdArrow.GetComponent<ArrowMovement>().SpeedX = 250f;
         thirdArrow.GetComponent<ArrowMovement>().SpeedY = -600f;

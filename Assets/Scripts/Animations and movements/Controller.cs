@@ -41,12 +41,6 @@ public class Controller : MonoBehaviour
     public float rAttackCost = 25;
     public float JumpCost = 25;
 
-    [Header("Attack Colliders")]
-    public GameObject attackQ;
-    public GameObject attackE;
-    public GameObject attackR;
-    BoxCollider2D AttackCollider;
-
     private Animator animator;
     private Rigidbody2D rb;
 
@@ -246,10 +240,6 @@ public class Controller : MonoBehaviour
     {
         return (manaSlider.value >= attackCost);
     }
-    private bool CanPerformJump(float  JumpCost)
-    {
-        return (staminaSlider.value >= JumpCost);
-    }
 
 
     private void RegenerateResources()
@@ -377,10 +367,6 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private bool GetIsGrounded()
-    {
-        return Physics2D.Raycast(transform.position, Vector2.down, 1.5f, LayerMask.GetMask("Ground"));
-    }
     /// <summary>
     /// Casts a ray from the given origin in the given direction and distance, and returns true if it hits an object with the tag "Ground". Draws the ray for visualization.
     /// </summary>
@@ -482,12 +468,12 @@ public class Controller : MonoBehaviour
 
         if (transform.localScale.x < 0)
         {
-            firePosition = wizardPosition + new Vector3(-3.5f, 1.9f, 0);
+            firePosition = wizardPosition + new Vector3(-2.75f, 1.5f, 0);
 
         }
         else
         {
-            firePosition = wizardPosition + new Vector3(3.5f, 1.9f, 0);
+            firePosition = wizardPosition + new Vector3(2.75f, 1.5f, 0);
         }
 
         GameObject instantiatedFire = Instantiate(WizardFireball, firePosition, Quaternion.identity);
@@ -502,12 +488,11 @@ public class Controller : MonoBehaviour
 
         if (transform.localScale.x < 0)
         {
-            icePosition = wizardPosition + new Vector3(-3.5f, 2.5f, 0);
-
+            icePosition = wizardPosition + new Vector3(-2.5f, 1f, 0);
         }
         else
         {
-            icePosition = wizardPosition + new Vector3(3.5f, 2.5f, 0);
+            icePosition = wizardPosition + new Vector3(2.5f, 1f, 0);
         }
 
         GameObject instantiatedIce = Instantiate(WizardIcespear, icePosition, Quaternion.identity);
@@ -585,16 +570,6 @@ public class Controller : MonoBehaviour
                 return;
             }
             StartCoroutine("InstantiateLightning");
-        }
-
-        void PerformSecondAttack2(){
-            Vector3 spawnPosition2 = transform.position + new Vector3(0f, 0f, 0);
-            GameObject attackECollider2 = Instantiate(attackE, spawnPosition2, Quaternion.identity);
-            attackECollider2.transform.parent = gameObject.transform;
-            attackECollider2.transform.localScale = new Vector3(1f, 1f, 0);
-            attackECollider2.SetActive(true);
-            Destroy(attackECollider2, 0.35f);
-            Debug.Log("Wizard AttackE2");
         }
 
         void PlayWizardQSound()

@@ -193,7 +193,7 @@ MonoBehaviour:
   staminaSlider: {fileID: 0}
   manaSlider: {fileID: 0}
   speed: 10
-  jumpForce: 9
+  jumpForce: 12
   JumpCost: 25
   isGrounded: 1
   qAttackCost: 20

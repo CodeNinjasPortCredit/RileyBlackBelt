@@ -19,7 +19,7 @@ public class ArrowMovement : MonoBehaviour
 
         if (isFacingLeft == true)
         {
-            transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+            //transform.localEulerAngles = new Vector3(0f, 180f, 0f);
 
             rb.AddForce(new Vector2(-SpeedX, SpeedY));
 

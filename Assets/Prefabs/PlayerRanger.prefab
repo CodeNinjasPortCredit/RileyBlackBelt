@@ -469,7 +469,7 @@ MonoBehaviour:
   staminaSlider: {fileID: 0}
   manaSlider: {fileID: 0}
   speed: 10
-  jumpForce: 14
+  jumpForce: 12
   isGrounded: 0
   attackQ: {fileID: 0}
   attackE: {fileID: 8070617456643913670}

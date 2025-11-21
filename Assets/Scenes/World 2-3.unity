@@ -136,6 +136,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2945699647940478532, guid: a6c0758e566df154a8420d906371a321, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945699647940478532, guid: a6c0758e566df154a8420d906371a321, type: 3}
       propertyPath: maxXPosition
       value: 438.9075
       objectReference: {fileID: 0}
@@ -624,8 +628,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 431}
-  m_SizeDelta: {x: 500, y: 236.94}
+  m_AnchoredPosition: {x: -717, y: 439}
+  m_SizeDelta: {x: 375, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206588851
 MonoBehaviour:
@@ -3483,6 +3487,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2945699647940478532, guid: a6c0758e566df154a8420d906371a321, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945699647940478532, guid: a6c0758e566df154a8420d906371a321, type: 3}
       propertyPath: maxXPosition
       value: 574.5468
       objectReference: {fileID: 0}
@@ -3678,6 +3686,10 @@ PrefabInstance:
     - target: {fileID: 8624742511220485246, guid: 0b26648c25cd713459685e813a0c5fff, type: 3}
       propertyPath: m_Name
       value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897123724641430363, guid: 0b26648c25cd713459685e813a0c5fff, type: 3}
+      propertyPath: health
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8897123724641430363, guid: 0b26648c25cd713459685e813a0c5fff, type: 3}
       propertyPath: maxXPosition
@@ -3952,6 +3964,18 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 174729495709811793, guid: 179e1231961d07849a482727256d612d, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.19215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 174729495709811793, guid: 179e1231961d07849a482727256d612d, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.16078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 174729495709811793, guid: 179e1231961d07849a482727256d612d, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.16470589
+      objectReference: {fileID: 0}
     - target: {fileID: 1591684294703458590, guid: 179e1231961d07849a482727256d612d, type: 3}
       propertyPath: m_Name
       value: Wizard Player
@@ -3961,8 +3985,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591684294703458784, guid: 179e1231961d07849a482727256d612d, type: 3}
-      propertyPath: jumpForce
+      propertyPath: JumpCost
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591684294703458784, guid: 179e1231961d07849a482727256d612d, type: 3}
+      propertyPath: jumpForce
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1591684294703458784, guid: 179e1231961d07849a482727256d612d, type: 3}
       propertyPath: manaSlider
@@ -7212,6 +7240,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2779160866154866054, guid: acb46686bdad7974badc9cdd194230ae, type: 3}
+      propertyPath: health
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779160866154866054, guid: acb46686bdad7974badc9cdd194230ae, type: 3}
       propertyPath: maxXPosition
       value: 534.98
       objectReference: {fileID: 0}
@@ -7446,8 +7478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -388, y: 232}
-  m_SizeDelta: {x: 500, y: 236.94}
+  m_AnchoredPosition: {x: 749, y: 438}
+  m_SizeDelta: {x: 375, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610021955
 MonoBehaviour:
@@ -7617,6 +7649,18 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2021044418280729523, guid: cc9d4245647fe884396e693ce371f169, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021044418280729523, guid: cc9d4245647fe884396e693ce371f169, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021044418280729523, guid: cc9d4245647fe884396e693ce371f169, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.24313727
+      objectReference: {fileID: 0}
     - target: {fileID: 2856875574234376033, guid: cc9d4245647fe884396e693ce371f169, type: 3}
       propertyPath: m_Name
       value: FighterPlayer
@@ -7626,8 +7670,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2856875574234376034, guid: cc9d4245647fe884396e693ce371f169, type: 3}
+      propertyPath: JumpCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856875574234376034, guid: cc9d4245647fe884396e693ce371f169, type: 3}
       propertyPath: jumpForce
-      value: 8.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2856875574234376034, guid: cc9d4245647fe884396e693ce371f169, type: 3}
       propertyPath: manaSlider
@@ -7884,6 +7932,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 668108916885682544, guid: aa6ea5cbdb934c44eb400002253f6cbe, type: 3}
+      propertyPath: health
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 668108916885682544, guid: aa6ea5cbdb934c44eb400002253f6cbe, type: 3}
       propertyPath: maxXPosition
       value: 513.82
@@ -8254,8 +8306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63, y: 431}
-  m_SizeDelta: {x: 500, y: 236.94}
+  m_AnchoredPosition: {x: 0, y: 440}
+  m_SizeDelta: {x: 375, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846152993
 MonoBehaviour:
@@ -8543,11 +8595,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 962426114, guid: 38c45d63b7a4fab4b8a9bef0690ff7c6, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.14509805
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 962426114, guid: 38c45d63b7a4fab4b8a9bef0690ff7c6, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.121568635
+      value: 0.13725491
       objectReference: {fileID: 0}
     - target: {fileID: 962426114, guid: 38c45d63b7a4fab4b8a9bef0690ff7c6, type: 3}
       propertyPath: m_BackGroundColor.r
@@ -8599,7 +8651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6726996225036445403, guid: 38c45d63b7a4fab4b8a9bef0690ff7c6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6726996225036445406, guid: 38c45d63b7a4fab4b8a9bef0690ff7c6, type: 3}
       propertyPath: m_RootOrder
@@ -9430,6 +9482,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2779160866154866054, guid: acb46686bdad7974badc9cdd194230ae, type: 3}
+      propertyPath: health
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 2779160866154866054, guid: acb46686bdad7974badc9cdd194230ae, type: 3}
       propertyPath: maxXPosition
       value: 529.94

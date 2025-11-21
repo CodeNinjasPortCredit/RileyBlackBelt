@@ -7,6 +7,10 @@ public class MobAI : MonoBehaviour
 
     public string EnemyType;
 
+        // EnableOnDeath
+    public GameObject EnableOnDeath;
+    public GameObject WinScreen;
+
     // Animator boo
     [Header("Animator Parameters")]
     public string isRunningBool = "IsRunning";
@@ -54,6 +58,9 @@ public class MobAI : MonoBehaviour
     private float attackTimer = 0f; // Timer for attack delay
 
     public int Damage;
+
+
+
 
     void Start()
     {
@@ -639,6 +646,12 @@ public class MobAI : MonoBehaviour
 
     void Die()
     {
+        if (EnemyType == "Boss"){
+            EnableOnDeath.SetActive(true);
+        }
+        if (EnemyType == "Boss2"){
+            WinScreen.SetActive(true);
+        }
         animator.SetBool(isDeadBool, true);
         Destroy(gameObject);
     }
