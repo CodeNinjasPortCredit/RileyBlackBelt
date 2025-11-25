@@ -34,16 +34,8 @@ public class FireBallMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("IceSpear"))
-        {
-            Destroy(gameObject);
-        }
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Destroy(gameObject);
-        }
         if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
@@ -53,4 +45,5 @@ public class FireBallMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }

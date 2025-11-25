@@ -22,7 +22,9 @@ public class main_menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            if (PauseScreen != null) {
+                PauseGame();
+            }
         }
     }
     public static void MainMenu()

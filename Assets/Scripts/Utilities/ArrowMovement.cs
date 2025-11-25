@@ -28,7 +28,7 @@ public class ArrowMovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(SpeedX, SpeedY));
         }
-
+        Invoke("DestroyItself", 2f);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class ArrowMovement : MonoBehaviour
         //LeanTween.moveX(gameObject, Arrowdestination, Arrowtime).setEase(LeanTweenType.linear);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -58,6 +58,9 @@ public class ArrowMovement : MonoBehaviour
         }
     }
 
-    
+    void DestroyItself()
+    {
+        Destroy(gameObject);
+    }
 
 }

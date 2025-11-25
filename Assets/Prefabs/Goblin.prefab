@@ -135,7 +135,7 @@ RectTransform:
   m_GameObject: {fileID: 8624742511220485246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 8.336174}
-  m_LocalScale: {x: 7, y: 7, z: 0.37969}
+  m_LocalScale: {x: 4, y: 4, z: 0.37969}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 912592659132766454}
@@ -258,19 +258,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ec385fe6bf3a6498293df1cf1a6e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMode: 0
   EnemyType: 
+  EnableOnDeath: {fileID: 0}
+  WinScreen: {fileID: 0}
   isRunningBool: IsRunning
   isHurtBool: IsHurt
   isAttackingBool: IsAttacking
   isIdleBool: IsIdle
   isDeadBool: IsDead
-  minXPosition: -252
-  maxXPosition: -240
+  minXPosition: -84.35
+  maxXPosition: -78.66
   patrolSpeed: 2
   chaseSpeed: 5
-  attackRange: 5.5
+  attackRange: 2.25
   attackDelay: 0
-  health: 0
+  health: 55
   hurtDuration: 0.5
   attackTrigger: {fileID: 6121625278138318411}
   isChasing: 0
@@ -284,7 +287,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8624742511220485246}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

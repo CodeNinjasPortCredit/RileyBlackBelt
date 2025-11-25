@@ -61,6 +61,9 @@ public class Controller : MonoBehaviour
         // Initialize components
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        InitializeSlider(healthSlider, wizardStats.Health, wizardStats.Health);
+        InitializeSlider(staminaSlider, wizardStats.Stamina, wizardStats.Stamina);
+        InitializeSlider(manaSlider, wizardStats.Mana, wizardStats.Mana);
     }
 
     private void Update()
@@ -134,9 +137,9 @@ public class Controller : MonoBehaviour
         // Check for jump input and if grounded
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            if (!CanPerformAttack(JumpCost))
+            if (!CanPerformJump(JumpCost))
             {
-                Debug.Log("Not enough stamina or mana for jump!");
+                Debug.Log("Not enough stamina for jump!");
                 return;
             }
             SpendStamina(JumpCost);
@@ -196,7 +199,6 @@ public class Controller : MonoBehaviour
                 Debug.Log("Not enough stamina or mana for E attack!");
                 return;
             }
-            SpendStamina(eAttackCost);
             SpendMana(eAttackCost);
             TriggerAttack("SecondAttack", "PerformSecondAttack");
             if (soundManager != null)
@@ -211,7 +213,6 @@ public class Controller : MonoBehaviour
                 Debug.Log("Not enough stamina or mana for R attack!");
                 return;
             }
-            SpendStamina(rAttackCost);
             SpendMana(rAttackCost);
             TriggerAttack("ThirdAttack", "PerformThirdAttack");
             if (soundManager != null)
@@ -225,14 +226,15 @@ public class Controller : MonoBehaviour
     private bool SpendStamina(float amount)
     {
         if (staminaSlider.value < amount) return false;
-        staminaSlider.value -= (int)amount;
+        staminaSlider.value -= amount;
         return true;
     }
 
     private bool SpendMana(float amount)
     {
         if (manaSlider.value < amount) return false;
-        manaSlider.value -= (int)amount;
+        wizardStats.Mana -= (int)amount;
+        manaSlider.value = wizardStats.Mana;
         return true;
     }
 
@@ -241,18 +243,23 @@ public class Controller : MonoBehaviour
         return (manaSlider.value >= attackCost);
     }
 
+    private bool CanPerformJump(float staminaCost)
+    {
+        return (staminaSlider.value >= staminaCost);
+    }
+
 
     private void RegenerateResources()
     {
         // Regenerate stamina if not moving and not attacking
         if (staminaSlider.value < staminaSlider.maxValue)
         {
-            staminaSlider.value = Mathf.Min(wizardStats.Stamina + wizardStats.StaminaRS * Time.deltaTime, staminaSlider.maxValue);
+            staminaSlider.value = Mathf.Min(staminaSlider.value + wizardStats.StaminaRS * Time.deltaTime, staminaSlider.maxValue);
         }
 
         if (manaSlider.value < manaSlider.maxValue)
         {
-            manaSlider.value = Mathf.Min(wizardStats.Mana + wizardStats.ManaRS * Time.deltaTime, manaSlider.maxValue);
+            manaSlider.value = Mathf.Min(manaSlider.value + wizardStats.ManaRS * Time.deltaTime, manaSlider.maxValue);
         }
     }
 
@@ -269,9 +276,7 @@ public class Controller : MonoBehaviour
         wizardStats.DisplayStats();
 
         // Update sliders with new stats
-        InitializeSlider(healthSlider, wizardStats.Health, wizardStats.Health);
-        InitializeSlider(staminaSlider, wizardStats.Stamina, wizardStats.Stamina);
-        InitializeSlider(manaSlider, wizardStats.Mana, wizardStats.Mana);
+
     }
 
 
@@ -361,10 +366,6 @@ public class Controller : MonoBehaviour
                 currentState = PlayerState.Idle;
             }
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
-        {
-            HandleEnemyCollision(collision.gameObject);
-        }
     }
 
     /// <summary>
@@ -415,17 +416,6 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private void HandleEnemyCollision(GameObject enemy)
-    {
-        CharacterStats enemyStats = enemy.GetComponent<CharacterStats>();
-        if (enemyStats != null)
-        {
-            // Example: Using Q_dmg as the damage value
-            int damage = enemyStats.Q_dmg;
-            Debug.Log($"Collided with {enemyStats.Class}, taking {damage} damage.");
-            TakeDamage(damage);
-        }
-    }
 
     private void TriggerAttack(string animationTrigger, string attackAction)
     {

@@ -8,13 +8,13 @@ public class SceneLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     static public void LoadNextScene()
@@ -32,6 +32,14 @@ public class SceneLoader : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            SceneLoader.LoadNextScene();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player") {
             SceneLoader.LoadNextScene();

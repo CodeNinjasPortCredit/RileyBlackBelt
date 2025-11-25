@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MobAI : MonoBehaviour
 {
-
+    public bool DebugMode = false;
     public string EnemyType;
 
-        // EnableOnDeath
+    // EnableOnDeath
     public GameObject EnableOnDeath;
     public GameObject WinScreen;
 
@@ -64,7 +64,7 @@ public class MobAI : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"[MobAI] *** START CALLED *** Enemy: {gameObject.name}");
+        DebugLog($"[MobAI] *** START CALLED *** Enemy: {gameObject.name}");
         
         // Get required components
         animator = GetComponent<Animator>();
@@ -95,7 +95,7 @@ public class MobAI : MonoBehaviour
         // Store starting local position for accurate visualization
         startingLocalPosition = transform.localPosition;
         
-        // Debug.Log($"[MobAI] MobAI initialized for {gameObject.name}. AttackRange: {attackRange}, ChaseSpeed: {chaseSpeed}");
+        // DebugLog($"[MobAI] MobAI initialized for {gameObject.name}. AttackRange: {attackRange}, ChaseSpeed: {chaseSpeed}");
     }
 
     void Update()
@@ -139,7 +139,7 @@ public class MobAI : MonoBehaviour
 
             if (attackTimer >= attackDelay)
             {
-                Debug.Log($"[MobAI] Attack delay reached ({attackTimer} >= {attackDelay}), calling AttackPlayer()");
+                DebugLog($"[MobAI] Attack delay reached ({attackTimer} >= {attackDelay}), calling AttackPlayer()");
                 AttackPlayer();
                 attackTimer = 0f;
                 // Keep isAttacking = true until ResetAttackAnimation is called
@@ -161,7 +161,7 @@ public class MobAI : MonoBehaviour
             // Only log occasionally to avoid spam
             if (Time.frameCount % 60 == 0)
             {
-                Debug.Log($"[MobAI] Update: Calling ChasePlayer(). isChasing={isChasing}, playerTransform={playerTransform.name}, isAttacking={isAttacking}");
+                DebugLog($"[MobAI] Update: Calling ChasePlayer(). isChasing={isChasing}, playerTransform={playerTransform.name}, isAttacking={isAttacking}");
             }
             ChasePlayer();
         }
@@ -170,7 +170,7 @@ public class MobAI : MonoBehaviour
             // Debug why we're not chasing (only log occasionally to avoid spam)
             if (Time.frameCount % 120 == 0) // Log every 2 seconds
             {
-                Debug.Log($"[MobAI] Update: Patrolling. isChasing={isChasing}, isHurt={isHurt}, isAttacking={isAttacking}, playerTransform={(playerTransform != null ? playerTransform.name : "null")}");
+                DebugLog($"[MobAI] Update: Patrolling. isChasing={isChasing}, isHurt={isHurt}, isAttacking={isAttacking}, playerTransform={(playerTransform != null ? playerTransform.name : "null")}");
             }
             Patrol();
         }
@@ -214,7 +214,7 @@ public class MobAI : MonoBehaviour
         // Only log occasionally to avoid spam
         if (Time.frameCount % 60 == 0)
         {
-            Debug.Log($"[MobAI] ChasePlayer: horizontalDistance={horizontalDistance}, attackRange={attackRange}, isChasing={isChasing}");
+            DebugLog($"[MobAI] ChasePlayer: horizontalDistance={horizontalDistance}, attackRange={attackRange}, isChasing={isChasing}");
         }
 
         // If within attack range, stop and prepare to attack
@@ -232,12 +232,12 @@ public class MobAI : MonoBehaviour
             // Only start attack sequence if not already attacking
             if (!isAttacking)
             {
-                // Debug.Log($"[MobAI] Attack conditions met! Horizontal: {horizontalDistance}, AttackRange: {attackRange}");
+                // DebugLog($"[MobAI] Attack conditions met! Horizontal: {horizontalDistance}, AttackRange: {attackRange}");
                 animator.SetBool(isRunningBool, false);
                 animator.SetBool(isIdleBool, true);
                 
                 // Start attack sequence
-                Debug.Log("[MobAI] Setting isAttacking to true - player is in attack range");
+                DebugLog("[MobAI] Setting isAttacking to true - player is in attack range");
                 isAttacking = true;
                 attackTimer = 0f; // Reset timer when starting attack
             }
@@ -285,7 +285,7 @@ public class MobAI : MonoBehaviour
 
     void AttackPlayer()
     {
-        Debug.Log("[MobAI] AttackPlayer() called!");
+        DebugLog("[MobAI] AttackPlayer() called!");
         
         // Ensure enemy is facing the player before attacking
         if (playerTransform != null)
@@ -302,30 +302,15 @@ public class MobAI : MonoBehaviour
         if (!string.IsNullOrEmpty(isAttackingBool))
         {
             animator.SetBool(isAttackingBool, true);
-            Debug.Log($"[MobAI] Set animator bool {isAttackingBool} to true");
+            DebugLog($"[MobAI] Set animator bool {isAttackingBool} to true");
         }
-        
-        // Also try common trigger names in case the animator uses triggers
-        try
-        {
-            animator.SetTrigger("Attack");
-            Debug.Log("[MobAI] Set Attack trigger");
-        }
-        catch { }
-        
-        try
-        {
-            animator.SetTrigger("IsAttacking");
-            Debug.Log("[MobAI] Set IsAttacking trigger");
-        }
-        catch { }
         
         animator.SetBool(isIdleBool, false);
         
-        Debug.Log("[MobAI] Attack animation parameters set! Check animator for correct parameter name.");
+        DebugLog("[MobAI] Attack animation parameters set! Check animator for correct parameter name.");
 
         // Optionally, you can add logic here to deal damage to the player
-        // Debug.Log("Enemy is attacking the player!");
+        // DebugLog("Enemy is attacking the player!");
 
         // Reset the attack animation after it finishes
         Invoke("ResetAttackAnimation", 1f); // Adjust this delay to match your attack animation length
@@ -333,7 +318,7 @@ public class MobAI : MonoBehaviour
 
     void ResetAttackAnimation()
     {
-        Debug.Log($"[MobAI] ResetAttackAnimation() called - attack animation finished. isChasing={isChasing}, playerTransform={(playerTransform != null ? playerTransform.name : "null")}");
+        DebugLog($"[MobAI] ResetAttackAnimation() called - attack animation finished. isChasing={isChasing}, playerTransform={(playerTransform != null ? playerTransform.name : "null")}");
         
         // Reset the attack animation state
         animator.SetBool(isAttackingBool, false);
@@ -355,12 +340,12 @@ public class MobAI : MonoBehaviour
         // If we're still chasing, ChasePlayer() will either attack again or continue chasing
         if (isChasing && playerTransform != null)
         {
-            Debug.Log("[MobAI] ResetAttackAnimation: Still chasing! ChasePlayer() will handle next action");
+            DebugLog("[MobAI] ResetAttackAnimation: Still chasing! ChasePlayer() will handle next action");
             // Don't set any animation state - let ChasePlayer() handle it
         }
         else
         {
-            Debug.Log("[MobAI] ResetAttackAnimation: Not chasing, setting idle state");
+            DebugLog("[MobAI] ResetAttackAnimation: Not chasing, setting idle state");
             animator.SetBool(isIdleBool, true);
             animator.SetBool(isRunningBool, false);
         }
@@ -385,7 +370,7 @@ public class MobAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"[MobAI] *** OnTriggerEnter2D CALLED *** GameObject: {other.gameObject.name}, Tag: {other.gameObject.tag}");
+        DebugLog($"[MobAI] *** OnTriggerEnter2D CALLED *** GameObject: {other.gameObject.name}, Tag: {other.gameObject.tag}");
         
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player") {
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
@@ -395,12 +380,12 @@ public class MobAI : MonoBehaviour
         // Check if the colliding object is the Chase trigger (PlayerAttraction)
         if (other.CompareTag("Chase"))
         {
-            Debug.Log($"[MobAI] *** CHASE TAG DETECTED! *** GameObject: {other.gameObject.name}");
+            DebugLog($"[MobAI] *** CHASE TAG DETECTED! *** GameObject: {other.gameObject.name}");
             // Get the player transform (parent of the Chase object)
             Transform player = other.transform.parent;
             if (player != null)
             {
-                Debug.Log($"[MobAI] *** PLAYER PARENT FOUND: {player.name} *** Setting isChasing = true");
+                DebugLog($"[MobAI] *** PLAYER PARENT FOUND: {player.name} *** Setting isChasing = true");
                 playerTransform = player;
                 isChasing = true;
                 
@@ -496,7 +481,7 @@ public class MobAI : MonoBehaviour
                 // Log when chase state is restored (only occasionally to avoid spam)
                 if ((!wasChasing || !hadPlayerTransform) && Time.frameCount % 60 == 0)
                 {
-                    Debug.Log($"[MobAI] *** OnTriggerStay2D: Maintaining chase for {player.name}. wasChasing={wasChasing}, hadPlayerTransform={hadPlayerTransform} ***");
+                    DebugLog($"[MobAI] *** OnTriggerStay2D: Maintaining chase for {player.name}. wasChasing={wasChasing}, hadPlayerTransform={hadPlayerTransform} ***");
                 }
                 
                 // Don't interfere with attack animations - let ChasePlayer() handle movement and facing during attacks
@@ -542,7 +527,7 @@ public class MobAI : MonoBehaviour
         // Check if the exiting object is the Chase trigger (PlayerAttraction)
         if (other.CompareTag("Chase"))
         {
-            Debug.Log("[MobAI] Chase object exited detection area - stopping chase");
+            DebugLog("[MobAI] Chase object exited detection area - stopping chase");
             playerTransform = null;
             isChasing = false;
             isAttacking = false; // Stop any ongoing attacks
@@ -580,7 +565,7 @@ public class MobAI : MonoBehaviour
         animator.SetBool(isIdleBool, false);
 
         // Optionally, you can add logic here to reduce the boss's health
-        //Debug.Log("Boss is hurt!");
+        //DebugLog("Boss is hurt!");
     }
 
     void OnDrawGizmos()
@@ -654,5 +639,11 @@ public class MobAI : MonoBehaviour
         }
         animator.SetBool(isDeadBool, true);
         Destroy(gameObject);
+    }
+
+    void DebugLog(string message) {
+        if (DebugMode) {
+            Debug.Log(message);
+        }
     }
 }

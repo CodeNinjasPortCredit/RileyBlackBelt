@@ -54,7 +54,7 @@ public class CharacterStats : MonoBehaviour
     {
         public Fighter() : base("Fighter", 100, 0, 100, 10, 10, 10, 2, 0, 1)
         {
-            StaminaRS += 5f;
+            StaminaRS += 8f;
         }
 
         // public override void LevelUp()
@@ -78,6 +78,7 @@ public class CharacterStats : MonoBehaviour
         public Wizard() : base("Wizard", 100, 100, 50, 15, 25, 20, 1, 2, 0)
         {
             StaminaRS += 7.5f;
+            ManaRS += 10f;
         }
 
         // public override void LevelUp()

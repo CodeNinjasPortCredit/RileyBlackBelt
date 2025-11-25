@@ -396,10 +396,7 @@ public class FighterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            HandleEnemyCollision(collision.gameObject);
-        }
+
     }
 
     private bool GetIsGrounded()
@@ -454,15 +451,6 @@ public class FighterController : MonoBehaviour
         }
     }
 
-    private void HandleEnemyCollision(GameObject enemy)
-    {
-        MobAI enemyStats = enemy.GetComponent<MobAI>();
-        if (enemyStats != null)
-        {
-            // Example: Using Q_dmg as the damage value
-            int damage = enemyStats.Damage;
-        }
-    }
     private void TriggerAttack(string animationTrigger, string attackAction)
     {
         currentState = PlayerState.Attacking;

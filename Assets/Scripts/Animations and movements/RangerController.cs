@@ -363,18 +363,16 @@ public class RangerController : MonoBehaviour
         jumpForce = 0f;
         gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        GameObject.Find("PlayerAttraction").SetActive(false);
         if (soundManager != null)
         {
             soundManager.PlayRangerDead();
         }
+        ActivateDeathScreen();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            HandleEnemyCollision(collision.gameObject);
-        }
     }
 
     private bool GetIsGrounded()
@@ -431,15 +429,6 @@ public class RangerController : MonoBehaviour
         }
     }
 
-    private void HandleEnemyCollision(GameObject enemy)
-    {
-        MobAI enemyStats = enemy.GetComponent<MobAI>();
-        if (enemyStats != null)
-        {
-            // Example: Using Q_dmg as the damage value
-            int damage = enemyStats.Damage;
-        }
-    }
     private void TriggerAttack(string animationTrigger, string attackAction)
     {
         currentState = PlayerState.Attacking;

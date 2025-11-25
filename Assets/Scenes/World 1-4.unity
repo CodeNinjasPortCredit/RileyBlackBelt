@@ -1089,8 +1089,16 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
       propertyPath: EnemyType
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
+      propertyPath: chaseSpeed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
       propertyPath: attackDelay
@@ -1099,6 +1107,10 @@ PrefabInstance:
     - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
       propertyPath: attackRange
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
+      propertyPath: patrolSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6986741726074890112, guid: 4a78000887832b045b615b977740f3f6, type: 3}
       propertyPath: EnableOnDeath
