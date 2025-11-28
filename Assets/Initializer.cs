@@ -74,7 +74,10 @@ public class Initializer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Enemy")) {
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Player") || other.gameObject.transform.parent.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

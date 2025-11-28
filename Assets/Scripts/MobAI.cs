@@ -634,8 +634,10 @@ public class MobAI : MonoBehaviour
         if (EnemyType == "Boss"){
             EnableOnDeath.SetActive(true);
         }
-        if (EnemyType == "Boss2"){
+        if (EnemyType == "Boss2")
+        {
             WinScreen.SetActive(true);
+            Time.timeScale = 0;
         }
         animator.SetBool(isDeadBool, true);
         Destroy(gameObject);
